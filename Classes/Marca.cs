@@ -28,11 +28,6 @@ namespace Projeto_de_Produtos.Classes
         {
             Console.WriteLine("Qual a marca do produto cadastrado?");
             NomeMarca = Console.ReadLine();
-        
-            Console.WriteLine("Qual o codigo do produto cadastrado?");
-            CodigoMarca = int.Parse(Console.ReadLine());
-
-            DateTime DataCadastroMarca = DateTime.Now;
 
             return "Marca Cadastrada com sucesso";
         }

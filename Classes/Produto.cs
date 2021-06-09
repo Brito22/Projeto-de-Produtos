@@ -13,23 +13,49 @@ namespace Projeto_de_Produtos.Classes
 
         private float Preco { get; set; }
 
-        private int DataCadastroProduto { get; set; }
+        private string nomemarca;
+
+        private DateTime DataCadastroProduto { get; set; }
         Marca marca = new Marca();
 
         //Usuario CadastradoPor = new Usuario();
-   
+
+        Marca marcaproduto = new Marca();
+
         public string CadastrarProduto()
         {
-            Console.WriteLine("Qual o nome do produto?");
-            NomeProduto = Console.ReadLine();
+            
+            bool veri = false;
+            string resposta = "n";
+            do
+            {
+                Console.WriteLine("Qual o nome do produto?");
+                NomeProduto = Console.ReadLine();
 
-            Console.WriteLine("Qual o codigo do produto?");
-            CodigoProduto = int.Parse(Console.ReadLine());
+                Console.WriteLine("Qual o codigo do produto?");
+                CodigoProduto = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Qual o nome do produto?");
-            Preco = float.Parse(Console.ReadLine());
+                Console.WriteLine("Qual o Preço do produto?");
+                Preco = float.Parse(Console.ReadLine());
 
-            DateTime DataCadastroProduto = DateTime.Now;
+                Console.WriteLine("Qual a marca do produto cadastrado?");
+                nomemarca = Console.ReadLine();
+
+                DateTime DataCadastroProduto = DateTime.Now;
+
+                produto.Add(new Produto());
+
+                Console.WriteLine($"Deseja Cadastrar mais um produto");
+                resposta = Console.ReadLine().ToLower();
+
+
+                if (resposta == "n")
+                {
+                    veri = true;
+
+                }
+
+            } while (veri != true);
 
             return "Produto Cadastrado com sucesso";
         }
@@ -41,15 +67,15 @@ namespace Projeto_de_Produtos.Classes
 
         public string DeletarProduto()
         {
-            produto.Remove(new Produto());
-            return "Produto Deletado";
+            //produto.RemoveAll(new Produto);
+            return "Ultimo produto Deletado";
         }
 
         public void ListarProduto()
         {
             foreach (var item in produto)
             {
-                Console.WriteLine($" {marca} - {CodigoProduto} - {NomeProduto} - {Preco:C2} - {DataCadastroProduto}");
+                Console.WriteLine($" {nomemarca} - {CodigoProduto} - {NomeProduto} - {Preco:C2} - {DataCadastroProduto}");
             }
         }
     }

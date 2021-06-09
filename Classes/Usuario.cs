@@ -8,28 +8,48 @@ namespace Projeto_de_Produtos.Classes
         private int Codigo { get; set; }
         private string Nome { get; set; }
         public string Email { get; set; }
+
         public string Senha { get; set; }
         private DateTime? dataCadastro { get; set; }
+        public object ListarProduto { get; private set; }
+
         public bool Verificacao = false;
 
-        public Usuario()
+        Produto produto = new Produto();
+        
+
+        public string Cadastrar()
         {
+            Console.WriteLine($"Qual é o seu nome?");
+            Nome = Console.ReadLine();
+            Console.WriteLine($"Qual sua senha?");
+            Senha = Console.ReadLine();
+            Console.WriteLine($"Qual é o seu email");
+            Email = Console.ReadLine();
+
+            return "Cadastro realizado com sucesso";
+        }
+        public string Menu()
+        {
+
+            do
+            {
             Console.WriteLine($"O que voce deseja?");
 
             Console.WriteLine($@"| 1-Cadastrar 2- Listar 3- Deletar 4- Deslogar|");
             string opcao = Console.ReadLine();
-
-            do
-            {
                 switch (opcao)
                 {
                     case "1":
-
+                        produto.CadastrarProduto();
                         break;
                     case "2":
-
+                        produto.ListarProduto();
                         break;
                     case "3":
+                        produto.DeletarProduto();
+                        Console.WriteLine("Qual o nome ");
+
 
                         break;
                     case "4":
@@ -40,21 +60,9 @@ namespace Projeto_de_Produtos.Classes
                 }
 
             } while (Verificacao == false);
-
+            return"O que deseja?";
         }
 
-        public string Cadastrar(string _nome, string _senha, string _email)
-        {
-            Console.WriteLine($"Qual é o seu nome?");
-            Nome = _nome;
-            Console.WriteLine($"Qual sua senha?");
-            Senha = _senha;
-            Console.WriteLine($"Qual é o seu email");
-            Email = _email;
-
-
-            return "Cadastro realizado com sucesso";
-        }
 
         public string Deletar()
         {
@@ -66,5 +74,7 @@ namespace Projeto_de_Produtos.Classes
             return "Usuario deletado";
 
         }
+
+     
     }
 }

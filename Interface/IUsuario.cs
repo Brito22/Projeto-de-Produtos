@@ -5,8 +5,8 @@ namespace Projeto_de_Produtos.Interface
 {
     public interface IUsuario
     {
-      string Cadastrar(string _nome, string _senha, string _emails);
-      string Deletar(); 
-
+      public string Cadastrar();
+      public string Deletar();
+      public string Menu();
     }
 }

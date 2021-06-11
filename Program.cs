@@ -14,9 +14,6 @@ namespace Projeto_de_Produtos
             login.Cadastrar();
             login.Logar();
             login.Menu();
-
-
-            
         }
     }
 }

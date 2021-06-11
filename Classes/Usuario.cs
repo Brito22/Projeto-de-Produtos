@@ -8,35 +8,29 @@ namespace Projeto_de_Produtos.Classes
         private int Codigo { get; set; }
         private string Nome { get; set; }
         public string Email { get; set; }
-
         public string Senha { get; set; }
         private DateTime? dataCadastro { get; set; }
         public object ListarProduto { get; private set; }
-
         public bool Verificacao = false;
-
         Produto produto = new Produto();
-        
-
         public string Cadastrar()
         {
             Console.WriteLine($"Qual é o seu nome?");
             Nome = Console.ReadLine();
-            Console.WriteLine($"Qual sua senha?");
-            Senha = Console.ReadLine();
             Console.WriteLine($"Qual é o seu email");
             Email = Console.ReadLine();
+            Console.WriteLine($"Qual sua senha?");
+            Senha = Console.ReadLine();
 
             return "Cadastro realizado com sucesso";
         }
         public string Menu()
         {
-
             do
             {
             Console.WriteLine($"O que voce deseja?");
 
-            Console.WriteLine($@"| 1-Cadastrar 2- Listar 3- Deletar 4- Deslogar|");
+            Console.WriteLine($@"| 1-Cadastrar 2- Listar 3- Deletar 4- Deslogar |");
             string opcao = Console.ReadLine();
                 switch (opcao)
                 {
@@ -48,22 +42,18 @@ namespace Projeto_de_Produtos.Classes
                         break;
                     case "3":
                         produto.DeletarProduto();
-                        Console.WriteLine("Qual o nome ");
-
-
                         break;
                     case "4":
                         Verificacao = true;
                         break;
                     default:
+                    Console.WriteLine("Valor Invalido, Por Favor, Tente Novamente!!!");
                         break;
                 }
 
             } while (Verificacao == false);
             return"O que deseja?";
         }
-
-
         public string Deletar()
         {
             Nome = null;
@@ -72,9 +62,6 @@ namespace Projeto_de_Produtos.Classes
             dataCadastro = null;
 
             return "Usuario deletado";
-
         }
-
-     
     }
 }

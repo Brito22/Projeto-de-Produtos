@@ -43,8 +43,7 @@ namespace Projeto_de_Produtos.Classes
                 }
 
             } while (Logado == true);
-            return "Login realizado com sucesso";
-
+            return "Login realizado com sucesso!!!";
         }
 
         void ILogin.Login()
